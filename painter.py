@@ -26,7 +26,7 @@ class Painter:
         self.__w = w
         self.x = x 
         self.y = y 
-        t.color("red")
+        t.pen(pencolor="red", fillcolor="black")
         self.__speed = 6
         self.paintLeft = p
         self.__pixelWidth = 200/w

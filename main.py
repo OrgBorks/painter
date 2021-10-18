@@ -2,7 +2,7 @@
 
 from painter import Painter
 
-p = Painter(6, 2, 1, "east", 69)
+p = Painter(10, 2, 1, "east", 100)
 
 p.paint("blue")
 p.move()
