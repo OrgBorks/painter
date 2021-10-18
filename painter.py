@@ -30,6 +30,7 @@ class Painter:
         self.__speed = 6
         self.paintLeft = p
         self.__pixelWidth = 200/w
+        t.shapesize(self.__pixelWidth/10, self.__pixelWidth/10)
         if x >= w or y >= w:
             raise OutOfBoundsException(f"Starting coordanates ({x}, {y}) are out of bounds.")
         self.__start()

@@ -1,6 +1,6 @@
 from painter import Painter
 
-p = Painter(20, 2, 1, "east", 69)
+p = Painter(10, 2, 1, "east", 69)
 
 p.paint("blue")
 p.move()
