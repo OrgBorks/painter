@@ -24,16 +24,17 @@ class Painter:
         self.__border = turtle.Turtle()
         self.__border.ht()
         self.__w = w
-        self.x = x + 1
-        self.y = y + 1
+        self.x = x 
+        self.y = y 
         t.color("red")
         self.__speed = 6
         self.paintLeft = p
         self.__pixelWidth = 200/w
         t.shapesize(self.__pixelWidth/10, self.__pixelWidth/10)
-        if x >= w or y >= w:
-            raise OutOfBoundsException(f"Starting coordanates ({x}, {y}) are out of bounds.")
         self.__start()
+        pos = t.pos()
+        if not (-100 < pos[0] < 100 and -100 < pos[1] < 100):
+            raise OutOfBoundsException(f"Starting coordanates ({x}, {y}) are out of bounds.")
         self.__paintedSquares = []
         for i in range(w):
             self.__paintedSquares.append([])

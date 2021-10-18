@@ -1,6 +1,8 @@
+# example painter project
+
 from painter import Painter
 
-p = Painter(10, 2, 1, "east", 69)
+p = Painter(6, 2, 1, "east", 69)
 
 p.paint("blue")
 p.move()
@@ -28,3 +30,8 @@ while p.canMove():
 p.turnLeft()
 p.move()
 p.paint("#FF7777")
+print(p.isOnPaint())
+p.turnLeft()
+p.turnLeft()
+p.move()
+print(p.isOnPaint())
