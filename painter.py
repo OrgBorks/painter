@@ -15,8 +15,11 @@ class InvalidDirectionError(Exception):
 
 # main painter class
 class Painter:
-    def __init__(self, w, x, y, d, p):
+    def __init__(self, w, x, y, d, p, s):
         self.__screen = turtle.getscreen()
+        self.__tracer = self.__screen.tracer()
+        self.__delay = 20 #self.__screen.delay()
+        print(self.__delay)
         self.__canvas = self.__screen.getcanvas()
         # self.__screen.screensize(self.__canvas.winfo_screenwidth(), self.__canvas.winfo_screenheight())
         self.__t = self.__screen.turtles()[0]
@@ -27,7 +30,7 @@ class Painter:
         self.x = x 
         self.y = y 
         t.pen(pencolor="red", fillcolor="black")
-        self.__speed = 6
+        self.__speed = s
         self.paintLeft = p
         self.__pixelWidth = 200/w
         t.shapesize(self.__pixelWidth/10, self.__pixelWidth/10)
@@ -66,6 +69,7 @@ class Painter:
         self.__speed = s
     
     def canMove(self, d=None):
+        self.__screen.tracer(0, 0)
         if not d:
             d = self.__t.heading()
         else:
@@ -87,6 +91,7 @@ class Painter:
         elif self.facingSouth():
             self.y -= 1
         self.__t.seth(o)
+        self.__screen.tracer(self.__tracer, self.__delay)
         return True
     
     def isOnPaint(self):
@@ -146,8 +151,9 @@ class Painter:
     
     def turnLeft(self):
         """Makes the painter turn left. No inputs or returns."""
-        self.__t.speed(self.__speed)
+        self.__screen.tracer(self.__tracer, self.__delay - 10)
         self.__t.seth(self.__t.heading() + 90)
+        self.__screen.tracer(self.__tracer, self.__delay)
     
     def __start(self):
         t = self.__border
@@ -190,6 +196,7 @@ class Painter:
         t = self.__t
         h = t.heading()
         p = t.pos()
+        self.__screen.tracer(0, 0)
         t.speed(0)
         t.goto(t.xcor()-(self.__pixelWidth/2), t.ycor()+(self.__pixelWidth/2))
         t.seth(0)
@@ -203,6 +210,8 @@ class Painter:
             self.__square("black", 200, t=self.__border)
         t.goto(p)
         t.seth(h)
+        self.__screen.update()
+        self.__screen.tracer(self.__tracer, self.__delay)
         t.speed(self.__speed)
         self.paintLeft -= 1
 
@@ -212,7 +221,6 @@ class Painter:
         Args:
             l = An integer representing the number of squares to move by."""
         t = self.__t
-
         t.speed(self.__speed)
         t.fd(self.__pixelWidth*l)
         pos = t.pos()

@@ -2,12 +2,15 @@
 
 from painter import Painter
 
-p = Painter(10, 2, 1, "east", 100)
+p = Painter(10, 2, 1, "east", 100, "slowest")
 
+p.move()
+p.turnLeft()
+p.move()
 p.paint("blue")
+p.turnLeft()
 p.move()
 p.paint("#44a67a")
-p.turnLeft()
 p.turnLeft()
 p.turnLeft()
 p.move()
