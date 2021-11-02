@@ -30,4 +30,4 @@ l: [Optional] int - The number of spaces to move forward. Defaults to 1.
 
 s: int - The speed you want the painter to go, from 1 - 10.
 
-Note: The speed is very sensitive for some reason, so if you want to be able to see what you're doing, I recommend keeping it the default.
+Note: The speed is very sensitive for some reason (I don't reall know if it actually works anymore), so if you want to be able to see what you're doing, I recommend keeping it the default. Also, the more pixels there are, the faster it's gonna go. I think.
