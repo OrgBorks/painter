@@ -2,7 +2,7 @@
 
 from painter import Painter
 
-p = Painter(10, 2, 1, "east", 100, 1)
+p = Painter(10, 2, 1, "east", 100, 2)
 
 p.move()
 p.turnLeft()
