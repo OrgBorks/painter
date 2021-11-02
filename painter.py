@@ -15,7 +15,7 @@ class InvalidDirectionError(Exception):
 
 # main painter class
 class Painter:
-    def __init__(self, w, x, y, d, p, s):
+    def __init__(self, w, x, y, d, p, s=2):
         self.__screen = turtle.getscreen()
         self.__tracer = self.__screen.tracer()
         self.__delay = 20 #self.__screen.delay()
@@ -216,12 +216,13 @@ class Painter:
         self.paintLeft -= 1
 
     def move(self, l=1):
-        """Moves the painter.
+        """Moves the painter forward.
         
         Args:
             l = An integer representing the number of squares to move by."""
         t = self.__t
-        t.speed(self.__speed)
+        if self.__speed > 1:
+            t.speed(self.__speed - 1)
         t.fd(self.__pixelWidth*l)
         pos = t.pos()
         if not (-100 < pos[0] < 100 and -100 < pos[1] < 100):
