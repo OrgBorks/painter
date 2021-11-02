@@ -18,8 +18,7 @@ class Painter:
     def __init__(self, w, x, y, d, p, s=2):
         self.__screen = turtle.getscreen()
         self.__tracer = self.__screen.tracer()
-        self.__delay = 20 #self.__screen.delay()
-        print(self.__delay)
+        self.__delay = 20 # self.__screen.delay()
         self.__canvas = self.__screen.getcanvas()
         # self.__screen.screensize(self.__canvas.winfo_screenwidth(), self.__canvas.winfo_screenheight())
         self.__t = self.__screen.turtles()[0]
