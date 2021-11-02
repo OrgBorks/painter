@@ -68,6 +68,10 @@ class Painter:
         self.__speed = s
     
     def canMove(self, d=None):
+        """Checks if the painter can move in a certain direction. Returns true or false.
+        
+        Args:
+            d - String of the direction to check. Defaults to the direction the painter is currently facing."""
         self.__screen.tracer(0, 0)
         if not d:
             d = self.__t.heading()
@@ -151,7 +155,7 @@ class Painter:
     def turnLeft(self):
         """Makes the painter turn left. No inputs or returns."""
         self.__screen.tracer(self.__tracer, self.__delay - 10)
-        self.__t.seth(self.__t.heading() + 90)
+        self.__t.lt(90)
         self.__screen.tracer(self.__tracer, self.__delay)
     
     def __start(self):
