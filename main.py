@@ -1,39 +1,10 @@
-# example painter project
-
+import logging
 from painter import Painter
 
-p = Painter(10, 2, 1, "east", 100, 2)
-
-p.move()
-p.turnLeft()
-p.move()
-p.paint("blue")
-p.turnLeft()
-p.move()
-p.paint("#44a67a")
-p.turnLeft()
-p.turnLeft()
-p.move()
-p.paint("red")
-print(p.isOnPaint())
-p.turnLeft()
-p.turnLeft()
-p.move()
-p.scrapePaint()
-p.turnLeft()
-p.paint("green")
-p.faceSouth()
-while p.canMove():
-    c = p.getColor()
+p = Painter(0, 0, "east", 20, 20, 0)
+    
+def main(dt):
+    p.turnLeft()
     p.move()
-    if c == "green":
-        p.paint("orange")
-    else:
-        p.paint("green")
-p.turnLeft()
-p.move()
-p.paint("#FF7777")
-print(p.isOnPaint())
-p.turnLeft()
-p.turnLeft()
-p.move()
+
+p.run(main)
