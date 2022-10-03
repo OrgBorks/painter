@@ -1,6 +1,6 @@
 # Code.org MyNeighborhood Painter
 
-This is an unofficial port of code.org's MyNeighborhood Painter used in the AP Computer Science A course, coded in Python. I am in no way associated with code.org.
+This is an unofficial port of code.org's MyNeighborhood Painter used in the AP Computer Science A course, coded in Python. I am in no way associated with code.org. Just uses python's Turtle module.
 
 # Usage
 
